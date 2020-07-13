@@ -6,11 +6,11 @@ class App extends React.Component {
     displayElementId;
     displayElement;
 
-    num1 = null;
-    num2 = null;
-    operator = null;
-    waitForSecondOperand = false;
-    dotOperand = false;
+    num1;
+    num2;
+    operator;
+    waitForSecondOperand;
+    dotOperand;
 
     constructor(props) {
         super(props);
@@ -18,6 +18,12 @@ class App extends React.Component {
         this.state = {
             displayValue: "",
         }
+
+        this.num1 = null;
+        this.num2 = null;
+        this.operator = null;
+        this.waitForSecondOperand = false;
+        this.dotOperand = false;
     }
 
     componentDidMount() {
