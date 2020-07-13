@@ -3,7 +3,6 @@ import CalcPad from "../calculator/pad";
 
 class App extends React.Component {
 
-    displayElementId;
     displayElement;
 
     num1;
@@ -14,7 +13,6 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.displayElementId = "display";
         this.state = {
             displayValue: "",
         }
@@ -27,7 +25,6 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        this.displayElement = document.getElementById("display");
         this.setDisplayValue("");
     }
 
@@ -74,9 +71,7 @@ class App extends React.Component {
     }
 
     concatWithCurrentDisplay = (glue = ".") => {
-        let currentDisplayValue = this.displayElement.value;
-        let newValue = currentDisplayValue + glue;
-
+        let newValue = this.state.displayValue + glue;
         this.setDisplayValue(newValue);
         return newValue;
     }
@@ -90,10 +85,6 @@ class App extends React.Component {
         } else {
             this.setDisplayValue(result.toFixed(2).toString().replace("0", ""));
         }
-    }
-
-    onClearClick = () => {
-        this.reset();
     }
 
     onOperatorClick = (e) => {
@@ -182,7 +173,7 @@ class App extends React.Component {
             title="Simple calculator in typescript"
             onNumberClick={this.onNumberClick}
             onEqualClick={this.onEqualClick}
-            onClearClick={this.onClearClick}
+            onClearClick={this.reset}
             onOperatorClick={this.onOperatorClick}
             onDotClick={this.onDotClick}
             displayId="display"

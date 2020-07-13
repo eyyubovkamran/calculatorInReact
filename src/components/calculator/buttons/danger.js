@@ -6,10 +6,8 @@ const DangerButton = (props) => {
     return (
         <CalcButton
             type="button"
-            class="btn btn-danger waves-effect"
-            value={props.value}
-            text={props.text}
-            onButtonClick = {props.onButtonClick}
+            className="btn btn-danger waves-effect"
+            {...props}
         />
     )
 }

@@ -37,16 +37,14 @@ const CalcPad = (props) => {
 
             <CalcDisplay
                 type="text"
-                class="calculator-screen z-depth-1"
+                className="calculator-screen z-depth-1"
                 value={props.displayValue}
-                id={props.displayId}
-                isDisabled={true}
             />
 
             <div className="calculator-keys">
 
                 {operators.map(function (m) {
-                    return <OperatorButton value={m} text={m} onButtonClick={(event) => onOperatorClick(event)}/>;
+                    return <OperatorButton value={m} text={m} onButtonClick={props.onOperatorClick}/>;
                 })}
 
                 {numbers.map(function (n) {
